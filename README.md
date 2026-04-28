@@ -106,6 +106,10 @@ Only users in `Config.AdminGroups` can open/use the menu.
 
 ---
 
+## Links
+- Discord: https://discord.gg/zu8kKpB9x5
+- Tebex: https://customcodex-shop.tebex.io/package/easytime
+
 ## File Structure
 
 ```text
@@ -124,3 +128,5 @@ DBMK-Time/
 ├── config.lua
 ├── fxmanifest.lua
 └── README.md
+
+
