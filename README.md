@@ -1,8 +1,37 @@
-# DBMK-Time — Time & Weather Control
+# DBMK-Time — Time & Weather Control (ESX Legacy)
 
-> Admin tool for FiveM (ESX Legacy) to control in-game time and weather for all players in real-time.
+> A modern admin utility for FiveM servers to control in-game time and weather in real-time.  
+> **Price: €1.00** (support tier) to help fund continued development and updates.
 
 ![Banner](https://i.imgur.com/j1mDKln.png)
+
+---
+
+## Why DBMK-Time?
+
+DBMK-Time is built for serious RP servers that need reliable synchronization, secure admin-only controls, and a clean UX without unnecessary complexity.
+
+### Key Highlights
+- Real-time global sync for all connected players
+- Interactive 24h time control UI
+- One-click weather selection (15 weather types)
+- Admin-only access with configurable groups
+- Rate limiting / anti-spam protection
+- Multi-language support (`nl` / `en`)
+- ESX Legacy compatible
+
+---
+
+## Price & Support
+
+This project is available for **€1.00**.  
+The low price is intentional and mainly acts as a **development support contribution**.
+
+With purchase/support you get:
+- Access to the latest build
+- Update notifications
+- Priority support via Discord
+- Future maintenance improvements
 
 ---
 
@@ -10,106 +39,88 @@
 
 ### Features
 - Set in-game time via an interactive 24-hour clock UI
-- Set weather with one click from 15 weather types
-- Changes are synced to **all players** instantly
-- Admin-only access (configurable groups)
-- Rate limiting to prevent network event overflow
-- Multi-language support (`nl` / `en`)
+- Change weather with one click from 15 weather types
+- Instant synchronization to **all players**
+- Admin-only controls (group configurable)
+- Request cooldown to prevent event overflow/spam
+- Localization-ready UI and notifications
 
 ### Requirements
 - [ESX Legacy](https://github.com/esx-framework/esx_core)
 
 ### Installation
-1. Download or clone this repository into your `resources` folder
-2. Add `ensure DBMK-Time` to your `server.cfg`
-3. Configure `config.lua` to your liking
+1. Download this resource into your `resources` folder
+2. Add `ensure DBMK-Time` to `server.cfg`
+3. Configure `config.lua`
 
 ### Configuration (`config.lua`)
 | Option | Default | Description |
 |---|---|---|
 | `Config.Locale` | `'nl'` | Language: `'nl'` or `'en'` |
-| `Config.Command` | `'easytime'` | Command to open the UI |
-| `Config.AdminGroups` | `{'admin','superadmin','mod','staff'}` | Groups with access |
+| `Config.Command` | `'easytime'` | Command used to open UI |
+| `Config.AdminGroups` | `{'admin','superadmin','mod','staff'}` | Allowed admin groups |
 | `Config.Cooldown` | `2000` | Milliseconds between changes |
 
 ### Usage
-- Open the menu with `/easytime` or press **F7**
-- Select a time using the clock or sliders
-- Select a weather type
-- Press **Apply** to sync to all players
-
-### Adding a language
-1. Copy `locales/nl.json` to `locales/xx.json`
-2. Translate all values
-3. Set `Config.Locale = 'xx'` in `config.lua`
-
-### Permissions
-Only players in the configured `Config.AdminGroups` can open and use the menu.
+- Open menu with `/easytime` or **F7**
+- Pick time via clock/sliders
+- Pick a weather type
+- Click **Apply** to sync globally
 
 ---
 
 ## 🇳🇱 Nederlands
 
 ### Functies
-- Stel de ingame tijd in via een interactieve 24-uurs klok UI
+- Stel ingame tijd in via een interactieve 24-uurs klok UI
 - Stel het weer in met één klik uit 15 weertypes
-- Wijzigingen worden direct gesynchroniseerd naar **alle spelers**
-- Alleen toegankelijk voor admins (configureerbare groepen)
-- Rate limiting om network event overflow te voorkomen
+- Directe synchronisatie naar **alle spelers**
+- Alleen admins met juiste groep hebben toegang
+- Cooldown/rate-limit tegen event spam
 - Meertalige ondersteuning (`nl` / `en`)
 
 ### Vereisten
 - [ESX Legacy](https://github.com/esx-framework/esx_core)
 
 ### Installatie
-1. Download of clone deze repository naar je `resources` map
-2. Voeg `ensure DBMK-Time` toe aan je `server.cfg`
-3. Pas `config.lua` aan naar wens
-
-### Configuratie (`config.lua`)
-| Optie | Standaard | Beschrijving |
-|---|---|---|
-| `Config.Locale` | `'nl'` | Taal: `'nl'` of `'en'` |
-| `Config.Command` | `'easytime'` | Commando om het menu te openen |
-| `Config.AdminGroups` | `{'admin','superadmin','mod','staff'}` | Groepen met toegang |
-| `Config.Cooldown` | `2000` | Milliseconden tussen wijzigingen |
+1. Plaats deze resource in je `resources` map
+2. Voeg `ensure DBMK-Time` toe aan `server.cfg`
+3. Stel `config.lua` in naar wens
 
 ### Gebruik
-- Open het menu met `/easytime` of druk op **F7**
-- Selecteer een tijd via de klok of sliders
-- Selecteer een weertype
-- Druk op **Toepassen** om te synchroniseren naar alle spelers
+- Open menu met `/easytime` of **F7**
+- Kies tijd en weertype
+- Klik op **Apply/Toepassen** om alles te synchroniseren
 
-### Taal toevoegen
-1. Kopieer `locales/nl.json` naar `locales/xx.json`
-2. Vertaal alle waarden
-3. Stel `Config.Locale = 'xx'` in in `config.lua`
+---
 
-### Rechten
-Alleen spelers in de geconfigureerde `Config.AdminGroups` kunnen het menu openen en gebruiken.
+## Add a New Language
+1. Copy `locales/nl.json` to `locales/xx.json`
+2. Translate values
+3. Set `Config.Locale = 'xx'` in `config.lua`
+
+---
+
+## Permissions
+Only users in `Config.AdminGroups` can open/use the menu.
 
 ---
 
 ## File Structure
 
-```
+```text
 DBMK-Time/
 ├── client/
-│   └── main.lua          # Client-side logic
+│   └── main.lua
 ├── server/
-│   └── main.lua          # Server-side logic + permission checks
+│   └── main.lua
 ├── html/
-│   ├── index.html        # NUI interface
-│   ├── style.css         # Styling
-│   └── script.js         # UI logic
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 ├── locales/
-│   ├── nl.json           # Dutch translations
-│   └── en.json           # English translations
-├── config.lua            # Configuration
-├── fxmanifest.lua        # Resource manifest
+│   ├── nl.json
+│   └── en.json
+├── config.lua
+├── fxmanifest.lua
 └── README.md
-```
-
-## License
-
-MIT — free to use, modify and distribute. Credits appreciated.
